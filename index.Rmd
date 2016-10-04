@@ -1,34 +1,26 @@
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
+title: "R for FinTech"
+author: "Jasmine Dumas"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
+always_allow_html: yes
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: rstudio/bookdown-demo
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+github-repo: jasdumas/r4fintech
+description: "A guidebook for getting started with R Programming with Financial Technology (FinTech) applications"
 ---
 
-# Prerequisites
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
+# Welcome
 
-For now, you have to install the development versions of **bookdown** from Github:
+Welcome to the Guidebook **R for FinTech**. This Guidebook will include examples, tutorials, and highlight essential R packages for Data Science. The organization of this guide is inspired by the book [**R for Data Science**](http://r4ds.had.co.nz/) from Garrett Grolemund and Hadley Wickham. This guide has emphasis on ["FinTech"](https://en.wikipedia.org/wiki/Financial_technology) or Financial Technology applications in data analysis.
 
-```{r eval=FALSE}
-devtools::install_github("rstudio/bookdown")
-```
+## Prerequisites
 
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
+**If you don't already have R or RStudio:**
 
-To compile this example to PDF, you need to install XeLaTeX.
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+* Download R at  [https://www.r-project.org/alt-home/](https://www.r-project.org/alt-home/)
+* Download RStudio at [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)

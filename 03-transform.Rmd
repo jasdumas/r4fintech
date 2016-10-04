@@ -1,0 +1,25 @@
+# Transform {#transform}
+
+Transforming cleaned data to create summaries is an important part of the data analysis process along with extracting out features to create new features in variable.
+
+
+* [`dplyr`](https://cran.r-project.org/web/packages/dplyr/index.html): A fast, consistent tool for working with data frame like objects, both in memory and out of memory.
+
+**Examples: **
+
+```{r, message=FALSE, warning=FALSE}
+library(dplyr)
+library(insuranceData)
+library(magrittr)
+data("AutoBi")
+
+# summary of loss by whether or not the claimant was wearing a seatbelt/child restraint
+
+AutoBi %>% group_by(SEATBELT, MARITAL) %>% 
+           summarise(mLOSS = median(LOSS))
+
+
+```
+
+
+

@@ -1,0 +1,64 @@
+# Visualization {#viz}
+
+Data Visualization allows for the effective translation of complex models and processes to business applicable decisions. 
+
+## **Exploratory Visualization**
+
+Exploratory visualization invloves learning descriptive details prior to modeling efforts. Preemptive results from visualizing distributions can lead to more informed approachs in for example parameter tunning.
+
+* [`ggplot2`](https://cran.r-project.org/web/packages/ggplot2/index.html): An implementation of the grammar of graphics in R. It combines the advantages of both base and lattice graphics: conditioning and shared axes are handled automatically, and you can still build up a plot step by step from multiple data sources. It also implements a sophisticated multidimensional conditioning system and a consistent interface to map data to aesthetic attributes. 
+
+**Examples:**
+
+```{r, ggplot2-exp1}
+library(ggplot2)
+library(insuranceData)
+data("AutoClaims")
+head(AutoClaims)
+g <- ggplot(AutoClaims, aes(x = AGE)) +
+            geom_bar() +
+            facet_grid(. ~ GENDER)
+g
+
+```
+_____________
+
+```{r, ggplot2-exp2}
+library(ggplot2)
+library(insuranceData)
+
+
+g2 <- ggplot(AutoClaims, aes(x = AGE, y = PAID, color = GENDER)) +
+            geom_point() +
+            geom_text(aes(label = STATE)) +
+            theme_classic()
+g2
+
+```
+
+
+## **Interactive Visualization**
+
+* [`plotly`](https://cran.r-project.org/web/packages/plotly/index.html): Easily translate 'ggplot2' graphs to an interactive web-based version and/or create custom web-based visualizations directly from R. Once uploaded to a 'plotly' account, 'plotly' graphs (and the data behind them) can be viewed and modified in a web browser.
+
+**Examples:**
+
+```{r, message=FALSE, warning=FALSE}
+suppressPackageStartupMessages(library(plotly))
+library(insuranceData)
+data("AutoCollision")
+head(AutoCollision)
+
+plot_ly(AutoCollision, x = Severity, y = Claim_Count, mode = "markers", 
+        color = Severity, size = Severity)
+
+
+```
+
+## **Other visualization packages**
+
+* [rcharts](http://ramnathv.github.io/rCharts/)
+* [leaflet](https://rstudio.github.io/leaflet/)
+* [ggvis](http://ggvis.rstudio.com/)
+* [htmlwidget](http://www.htmlwidgets.org/)
+* [googleVis](https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html)

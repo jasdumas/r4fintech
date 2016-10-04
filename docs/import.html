@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for FinTech</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="A guidebook for getting started with R Programming with Financial Technology (FinTech) applications">
+  <meta name="generator" content="bookdown 0.1.15 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for FinTech" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A guidebook for getting started with R Programming with Financial Technology (FinTech) applications" />
+  <meta name="github-repo" content="jasdumas/r4fintech" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for FinTech" />
+  
+  <meta name="twitter:description" content="A guidebook for getting started with R Programming with Financial Technology (FinTech) applications" />
+  
+
+<meta name="author" content="Jasmine Dumas">
+
+  
+<meta name="date" content="2016-10-04">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="tidy.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<link href="libs/plotlyjs-1.10.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotlyjs-1.10.1/plotly-latest.min.js"></script>
+<script src="libs/plotly-binding-3.6.0/plotly.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.1</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>2</b> Import</a><ul>
+<li class="chapter" data-level="2.1" data-path="import.html"><a href="import.html#tabular-data"><i class="fa fa-check"></i><b>2.1</b> <strong>Tabular Data</strong></a></li>
+<li class="chapter" data-level="2.2" data-path="import.html"><a href="import.html#hierarchical-data"><i class="fa fa-check"></i><b>2.2</b> <strong>Hierarchical Data</strong></a></li>
+<li class="chapter" data-level="2.3" data-path="import.html"><a href="import.html#relational-data"><i class="fa fa-check"></i><b>2.3</b> <strong>Relational Data</strong></a></li>
+<li class="chapter" data-level="2.4" data-path="import.html"><a href="import.html#distributed-data"><i class="fa fa-check"></i><b>2.4</b> <strong>Distributed Data</strong></a></li>
+<li class="chapter" data-level="2.5" data-path="import.html"><a href="import.html#different-data-formats"><i class="fa fa-check"></i><b>2.5</b> <strong>Different Data Formats</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tidy.html"><a href="tidy.html"><i class="fa fa-check"></i><b>3</b> Tidy</a></li>
+<li class="chapter" data-level="4" data-path="transform.html"><a href="transform.html"><i class="fa fa-check"></i><b>4</b> Transform</a></li>
+<li class="chapter" data-level="5" data-path="viz.html"><a href="viz.html"><i class="fa fa-check"></i><b>5</b> Visualization</a><ul>
+<li class="chapter" data-level="5.1" data-path="viz.html"><a href="viz.html#exploratory-visualization"><i class="fa fa-check"></i><b>5.1</b> <strong>Exploratory Visualization</strong></a></li>
+<li class="chapter" data-level="5.2" data-path="viz.html"><a href="viz.html#interactive-visualization"><i class="fa fa-check"></i><b>5.2</b> <strong>Interactive Visualization</strong></a></li>
+<li class="chapter" data-level="5.3" data-path="viz.html"><a href="viz.html#other-visualization-packages"><i class="fa fa-check"></i><b>5.3</b> <strong>Other visualization packages</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="model.html"><a href="model.html"><i class="fa fa-check"></i><b>6</b> Model</a><ul>
+<li class="chapter" data-level="6.1" data-path="model.html"><a href="model.html#lm"><i class="fa fa-check"></i><b>6.1</b> <strong>LM</strong></a></li>
+<li class="chapter" data-level="6.2" data-path="model.html"><a href="model.html#glm"><i class="fa fa-check"></i><b>6.2</b> <strong>GLM</strong></a></li>
+<li class="chapter" data-level="6.3" data-path="model.html"><a href="model.html#gbm"><i class="fa fa-check"></i><b>6.3</b> <strong>GBM</strong></a></li>
+<li class="chapter" data-level="6.4" data-path="model.html"><a href="model.html#ensemble-learning"><i class="fa fa-check"></i><b>6.4</b> <strong>Ensemble learning</strong></a></li>
+<li class="chapter" data-level="6.5" data-path="model.html"><a href="model.html#additional-machine-learning-techniques"><i class="fa fa-check"></i><b>6.5</b> <strong>Additional Machine Learning Techniques</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="communicate.html"><a href="communicate.html"><i class="fa fa-check"></i><b>7</b> Communicate</a><ul>
+<li class="chapter" data-level="7.1" data-path="communicate.html"><a href="communicate.html#tools-for-communication-and-reproducible-research"><i class="fa fa-check"></i><b>7.1</b> <strong>Tools for Communication and Reproducible Research</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for FinTech</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="import" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Import</h1>
+<p>The first step in the typical data science project involves importing data into R. There are numerous packages for different data types all with varying preferences on speed and efficiency. Here are some R Packages for Importing Data into R:</p>
+<div id="tabular-data" class="section level2">
+<h2><span class="header-section-number">2.1</span> <strong>Tabular Data</strong></h2>
+<p>Tabular data consists of variables, observations and values.</p>
+<div class="figure">
+<img src="01_var_obs_val.PNG" />
+
+</div>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/readr/index.html"><code>readr</code></a>: Read flat/tabular text files from disk (or a connection). readr has some benefits over the base/utils version as smart column type parsing and not automatically converting strings into factors.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;file_name.csv&quot;</span>)</code></pre></div>
+<ul>
+<li><a href="https://cran.r-project.org/package=readxl"><code>readxl</code></a>: Import excel files into R. Supports ‘.xls’ via the embedded ‘libxls’ C library (<a href="http://sourceforge.net/projects/libxls/" class="uri">http://sourceforge.net/projects/libxls/</a>) and ‘.xlsx’ via the embedded ‘RapidXML’ C++ library (<a href="http://rapidxml.sourceforge.net" class="uri">http://rapidxml.sourceforge.net</a>). Works on Windows, Mac and Linux without external dependencies.</li>
+</ul>
+</div>
+<div id="hierarchical-data" class="section level2">
+<h2><span class="header-section-number">2.2</span> <strong>Hierarchical Data</strong></h2>
+<p>Hierarchical Data is a tree-structure such as <a href="https://en.wikipedia.org/wiki/XML">XML</a>, HTML, JSON.</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/jsonlite/index.html"><code>jsonlite</code></a>: A fast JSON parser and generator optimized for statistical data and the web.</li>
+<li><a href="https://cran.r-project.org/web/packages/xml2/index.html"><code>xml2</code></a>: Work with XML files using a simple, consistent interface. Built on top of the ‘libxml2’ C library.</li>
+<li><a href="https://cran.r-project.org/web/packages/rvest/index.html"><code>rvest</code></a>: Wrappers around the ‘xml2’ and ‘httr’ packages to make it easy to download, then manipulate, HTML and XML.</li>
+</ul>
+</div>
+<div id="relational-data" class="section level2">
+<h2><span class="header-section-number">2.3</span> <strong>Relational Data</strong></h2>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/DBI/index.html"><code>DBI</code></a>: A database interface definition for communication between R and relational database management systems. All classes in this package are virtual and need to be extended by the various R/DBMS implementations.</li>
+<li><a href="https://cran.r-project.org/web/packages/RMySQL/index.html"><code>RMySQL</code></a>: Implements ‘DBI’ Interface to ‘MySQL’ and ‘MariaDB’ Databases.</li>
+</ul>
+</div>
+<div id="distributed-data" class="section level2">
+<h2><span class="header-section-number">2.4</span> <strong>Distributed Data</strong></h2>
+<p>Distributed Data consists of non-relational formats with quick access to data over a large number of nodes.</p>
+<ul>
+<li><a href="http://spark.rstudio.com/"><code>sparklyr</code></a>: Filter and aggregate Spark datasets then bring them into R for analysis and visualization.</li>
+</ul>
+</div>
+<div id="different-data-formats" class="section level2">
+<h2><span class="header-section-number">2.5</span> <strong>Different Data Formats</strong></h2>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/haven/index.html"><code>haven</code></a>: Import and Export ‘SPSS’, ‘Stata’ and ‘SAS’ Files.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(haven)
+claims &lt;-<span class="st"> </span><span class="kw">read_sas</span>(<span class="st">&quot;http://www.businessandeconomics.mq.edu.au/our_departments/Applied_Finance_and_Actuarial_Studies/acst_docs/glms_for_insurance_data/data/claims_sas_miner.sas7bdat&quot;</span>)
+
+<span class="kw">head</span>(claims)</code></pre></div>
+<pre><code>## # A tibble: 6 × 33
+##          ID KIDSDRIV   PLCYDATE TRAVTIME    CAR_USE POLICYNO BLUEBOOK
+##       &lt;chr&gt;    &lt;dbl&gt;     &lt;date&gt;    &lt;dbl&gt;      &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+## 1 100058542        0 1996-03-17 17.09181    Private 36292520     9860
+## 2 100093408        0 1993-07-26 17.98656    Private 31958061     1500
+## 3 100208113        0 1994-06-06 47.00727 Commercial 42433312    30460
+## 4 100237269        0 1999-01-19 31.24381    Private 49896544    16580
+## 5  10042968        0 1999-05-18 13.96243 Commercial 79298192    23030
+## 6 100737644        0 1996-02-28 45.79204    Private 43393435    20730
+## # ... with 26 more variables: INITDATE &lt;date&gt;, RETAINED &lt;dbl&gt;,
+## #   NPOLICY &lt;dbl&gt;, CAR_TYPE &lt;chr&gt;, RED_CAR &lt;chr&gt;, OLDCLAIM &lt;dbl&gt;,
+## #   CLM_FREQ &lt;dbl&gt;, REVOLKED &lt;chr&gt;, MVR_PTS &lt;dbl&gt;, CLM_AMT &lt;dbl&gt;,
+## #   CLM_DATE &lt;date&gt;, CLM_FLAG &lt;chr&gt;, BIRTH &lt;date&gt;, AGE &lt;dbl&gt;,
+## #   HOMEKIDS &lt;dbl&gt;, YOJ &lt;dbl&gt;, INCOME &lt;dbl&gt;, GENDER &lt;chr&gt;, MARRIED &lt;chr&gt;,
+## #   PARENT1 &lt;chr&gt;, JOBCLASS &lt;chr&gt;, MAX_EDUC &lt;chr&gt;, HOME_VAL &lt;dbl&gt;,
+## #   SAMEHOME &lt;dbl&gt;, DENSITY &lt;chr&gt;, YEARQTR &lt;chr&gt;</code></pre>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/foreign/index.html"><code>foreign</code></a>: Functions for reading and writing data stored by some versions of Epi Info, Minitab, S, SAS, SPSS, Stata, Systat and Weka and for reading and writing some dBase files.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tidy.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-import.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

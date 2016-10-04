@@ -1,0 +1,85 @@
+# Model {#model}
+
+Build Models
+
+## **LM**
+
+* [`lm()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html): In statistics, the term linear model is used for drawing primary associations with a response (dependent variable) and covariate(s) (independent variable(s)) as a regression analysis technique. [Source: Wikipedia](https://en.wikipedia.org/wiki/Linear_model)  
+
+**Examples:**
+
+```{r, lm-exp1}
+library(insuranceData)
+data("AutoCollision")
+head(AutoCollision)
+
+fit <- lm(Severity ~ Vehicle_Use + Age + Claim_Count, data = AutoCollision)
+summary(fit)
+
+# this is not the best model we could have constructed as the lm assumes the error distribution of the response to be normal (gaussian) - and for a severity model we know that a multiplicative Gamma distribution is more appropriate.
+
+```
+
+
+## **GLM**
+
+* [`glm()`](http://www.statmethods.net/advstats/glm.html): In statistics, the generalized linear model (GLM) is a flexible generalization of ordinary linear regression that allows for response variables that have error distribution models other than a normal distribution. The GLM generalizes linear regression by allowing the linear model to be related to the response variable via a link function and by allowing the magnitude of the variance of each measurement to be a function of its predicted value. [Source: Wikipedia](https://en.wikipedia.org/wiki/Generalized_linear_model)
+
+**Examples: **
+
+```{r, glm-exp1}
+library(insuranceData)
+data("AutoCollision")
+
+fit <- glm(Severity ~ Vehicle_Use + Age + Claim_Count, data = AutoCollision, family = Gamma(link = "inverse"))
+summary(fit)
+
+r_squared = 1 - ( fit$deviance / fit$df.null ) # psuedo r2 for GLMs
+
+r_squared 
+
+# this model explains much more variance now that the error distribution has been specified correctly
+
+```
+
+
+* [Probability distributions from the exponential family](https://en.wikipedia.org/wiki/Exponential_family)
+
+    1. Claim Counts: **Multiplicative Poisson** model forms fit due to the poisson distribution is invariant to meatures of time.
+    2. Frequency: **Multiplicative Poisson** model forms fit due to the poisson distribution is invariant to meatures of time.
+    3. Severity: **Multiplicative Gamma** model forms fit because the gamma distribution is invariant to measures of currency.
+    4. Retension and New Business: **Binomial with logit** model form fits becasue the binomial distribution is invariant to measures of success or failure.
+  
+
+## **GBM**
+
+Gradient boosting is a machine learning technique for regression and classification problems, which produces a prediction model in the form of an ensemble of weak prediction models, typically decision trees. It builds the model in a stage-wise fashion like other boosting methods do, and it generalizes them by allowing optimization of an arbitrary differentiable loss function. [Source: Wikipedia](https://en.wikipedia.org/wiki/Gradient_boosting)
+
+* [Parameter tuning](https://www.analyticsvidhya.com/blog/2016/02/complete-guide-parameter-tuning-gradient-boosting-gbm-python/) is prudent in machine learning!
+
+**Examples:**
+```{r, gbm-exp1, message=FALSE, warning=FALSE}
+library(insuranceData)
+data("AutoCollision")
+library(gbm)
+
+# let's build a a GBM model which combines some weak learners into a strong learner as to boost the predictive power of those variables which contribute the most to the model
+fit <- gbm(Claim_Count ~ Vehicle_Use + Age + Severity, data=AutoCollision, distribution = "poisson", n.trees = 50, bag.fraction = 0.8)
+summary(fit)
+```
+
+## **Ensemble learning**
+
+In statistics and machine learning, ensemble methods use multiple learning algorithms to obtain better predictive performance than could be obtained from any of the constituent learning algorithms alone. [Source: Wikipedia](https://en.wikipedia.org/wiki/Ensemble_learning)
+
+* [h2o / stacking](http://blog.revolutionanalytics.com/2014/04/a-dive-into-h2o.html)
+
+
+## **Additional Machine Learning Techniques**
+
+  * [`xgboost`](https://xgboost.readthedocs.io/en/latest/): Extreme Gradient Boosting, which is an efficient implementation of gradient boosting framework. This package is its R interface. The package includes efficient linear model solver and tree learning algorithms. The package can automatically do parallel computation on a single machine which could be more than 10 times faster than existing gradient boosting packages. It supports various objective functions, including regression, classification and ranking. The package is made to be extensible, so that users are also allowed to define their own objectives easily.
+  * [`TDboost`](https://cran.r-project.org/web/packages/TDboost/TDboost.pdf): A boosted Tweedie compound Poisson model using the gradient boosting. It is capable of fitting a flexible nonlinear Tweedie compound Poisson model (or a gamma model) and capturing interactions among predictors.
+  * [`glmnet`: lasso, ridge, elasticnet](https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html): Extremely efficient procedures for fitting the entire lasso (least absolute shrinkage and selection operator) or elastic-net regularization path for linear regression, logistic and multinomial regression models, Poisson regression and the Cox model. Two recent additions are the multiple-response Gaussian, and the grouped multinomial. The algorithm uses cyclical coordinate descent in a path-wise fashion.
+  * [`randomForest`](https://cran.r-project.org/web/packages/randomForest/randomForest.pdf): Classification and regression based on a forest of trees using random inputs.
+  * [K-means / K-mediods](http://www.statmethods.net/advstats/cluster.html): K Means Clustering is an unsupervised learning algorithm that tries to cluster data based on their similarity. Available in the base `stats` package
+

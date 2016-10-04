@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for FinTech</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="A guidebook for getting started with R Programming with Financial Technology (FinTech) applications">
+  <meta name="generator" content="bookdown 0.1.15 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for FinTech" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A guidebook for getting started with R Programming with Financial Technology (FinTech) applications" />
+  <meta name="github-repo" content="jasdumas/r4fintech" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for FinTech" />
+  
+  <meta name="twitter:description" content="A guidebook for getting started with R Programming with Financial Technology (FinTech) applications" />
+  
+
+<meta name="author" content="Jasmine Dumas">
+
+  
+<meta name="date" content="2016-10-04">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="transform.html">
+<link rel="next" href="model.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<link href="libs/plotlyjs-1.10.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotlyjs-1.10.1/plotly-latest.min.js"></script>
+<script src="libs/plotly-binding-3.6.0/plotly.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.1</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>2</b> Import</a><ul>
+<li class="chapter" data-level="2.1" data-path="import.html"><a href="import.html#tabular-data"><i class="fa fa-check"></i><b>2.1</b> <strong>Tabular Data</strong></a></li>
+<li class="chapter" data-level="2.2" data-path="import.html"><a href="import.html#hierarchical-data"><i class="fa fa-check"></i><b>2.2</b> <strong>Hierarchical Data</strong></a></li>
+<li class="chapter" data-level="2.3" data-path="import.html"><a href="import.html#relational-data"><i class="fa fa-check"></i><b>2.3</b> <strong>Relational Data</strong></a></li>
+<li class="chapter" data-level="2.4" data-path="import.html"><a href="import.html#distributed-data"><i class="fa fa-check"></i><b>2.4</b> <strong>Distributed Data</strong></a></li>
+<li class="chapter" data-level="2.5" data-path="import.html"><a href="import.html#different-data-formats"><i class="fa fa-check"></i><b>2.5</b> <strong>Different Data Formats</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tidy.html"><a href="tidy.html"><i class="fa fa-check"></i><b>3</b> Tidy</a></li>
+<li class="chapter" data-level="4" data-path="transform.html"><a href="transform.html"><i class="fa fa-check"></i><b>4</b> Transform</a></li>
+<li class="chapter" data-level="5" data-path="viz.html"><a href="viz.html"><i class="fa fa-check"></i><b>5</b> Visualization</a><ul>
+<li class="chapter" data-level="5.1" data-path="viz.html"><a href="viz.html#exploratory-visualization"><i class="fa fa-check"></i><b>5.1</b> <strong>Exploratory Visualization</strong></a></li>
+<li class="chapter" data-level="5.2" data-path="viz.html"><a href="viz.html#interactive-visualization"><i class="fa fa-check"></i><b>5.2</b> <strong>Interactive Visualization</strong></a></li>
+<li class="chapter" data-level="5.3" data-path="viz.html"><a href="viz.html#other-visualization-packages"><i class="fa fa-check"></i><b>5.3</b> <strong>Other visualization packages</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="model.html"><a href="model.html"><i class="fa fa-check"></i><b>6</b> Model</a><ul>
+<li class="chapter" data-level="6.1" data-path="model.html"><a href="model.html#lm"><i class="fa fa-check"></i><b>6.1</b> <strong>LM</strong></a></li>
+<li class="chapter" data-level="6.2" data-path="model.html"><a href="model.html#glm"><i class="fa fa-check"></i><b>6.2</b> <strong>GLM</strong></a></li>
+<li class="chapter" data-level="6.3" data-path="model.html"><a href="model.html#gbm"><i class="fa fa-check"></i><b>6.3</b> <strong>GBM</strong></a></li>
+<li class="chapter" data-level="6.4" data-path="model.html"><a href="model.html#ensemble-learning"><i class="fa fa-check"></i><b>6.4</b> <strong>Ensemble learning</strong></a></li>
+<li class="chapter" data-level="6.5" data-path="model.html"><a href="model.html#additional-machine-learning-techniques"><i class="fa fa-check"></i><b>6.5</b> <strong>Additional Machine Learning Techniques</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="communicate.html"><a href="communicate.html"><i class="fa fa-check"></i><b>7</b> Communicate</a><ul>
+<li class="chapter" data-level="7.1" data-path="communicate.html"><a href="communicate.html#tools-for-communication-and-reproducible-research"><i class="fa fa-check"></i><b>7.1</b> <strong>Tools for Communication and Reproducible Research</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for FinTech</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="viz" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Visualization</h1>
+<p>Data Visualization allows for the effective translation of complex models and processes to business applicable decisions.</p>
+<div id="exploratory-visualization" class="section level2">
+<h2><span class="header-section-number">5.1</span> <strong>Exploratory Visualization</strong></h2>
+<p>Exploratory visualization invloves learning descriptive details prior to modeling efforts. Preemptive results from visualizing distributions can lead to more informed approachs in for example parameter tunning.</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/ggplot2/index.html"><code>ggplot2</code></a>: An implementation of the grammar of graphics in R. It combines the advantages of both base and lattice graphics: conditioning and shared axes are handled automatically, and you can still build up a plot step by step from multiple data sources. It also implements a sophisticated multidimensional conditioning system and a consistent interface to map data to aesthetic attributes.</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(insuranceData)
+<span class="kw">data</span>(<span class="st">&quot;AutoClaims&quot;</span>)
+<span class="kw">head</span>(AutoClaims)</code></pre></div>
+<pre><code>##      STATE CLASS GENDER AGE    PAID
+## 1 STATE 14   C6       M  97 1134.44
+## 2 STATE 15   C6       M  96 3761.24
+## 3 STATE 15   C11      M  95 7842.31
+## 4 STATE 15   F6       F  95 2384.67
+## 5 STATE 15   F6       M  95  650.00
+## 6 STATE 15   F6       M  95  391.12</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g &lt;-<span class="st"> </span><span class="kw">ggplot</span>(AutoClaims, <span class="kw">aes</span>(<span class="dt">x =</span> AGE)) +
+<span class="st">            </span><span class="kw">geom_bar</span>() +
+<span class="st">            </span><span class="kw">facet_grid</span>(. ~<span class="st"> </span>GENDER)
+g</code></pre></div>
+<p><img src="r4fintech_files/figure-html/ggplot2-exp1-1.png" width="672" /> _____________</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(insuranceData)
+
+
+g2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(AutoClaims, <span class="kw">aes</span>(<span class="dt">x =</span> AGE, <span class="dt">y =</span> PAID, <span class="dt">color =</span> GENDER)) +
+<span class="st">            </span><span class="kw">geom_point</span>() +
+<span class="st">            </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> STATE)) +
+<span class="st">            </span><span class="kw">theme_classic</span>()
+g2</code></pre></div>
+<p><img src="r4fintech_files/figure-html/ggplot2-exp2-1.png" width="672" /></p>
+</div>
+<div id="interactive-visualization" class="section level2">
+<h2><span class="header-section-number">5.2</span> <strong>Interactive Visualization</strong></h2>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/plotly/index.html"><code>plotly</code></a>: Easily translate ‘ggplot2’ graphs to an interactive web-based version and/or create custom web-based visualizations directly from R. Once uploaded to a ‘plotly’ account, ‘plotly’ graphs (and the data behind them) can be viewed and modified in a web browser.</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(plotly))
+<span class="kw">library</span>(insuranceData)
+<span class="kw">data</span>(<span class="st">&quot;AutoCollision&quot;</span>)
+<span class="kw">head</span>(AutoCollision)</code></pre></div>
+<pre><code>##   Age Vehicle_Use Severity Claim_Count
+## 1   A    Pleasure   250.48          21
+## 2   A  DriveShort   274.78          40
+## 3   A   DriveLong   244.52          23
+## 4   A    Business   797.80           5
+## 5   B    Pleasure   213.71          63
+## 6   B  DriveShort   298.60         171</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot_ly</span>(AutoCollision, <span class="dt">x =</span> Severity, <span class="dt">y =</span> Claim_Count, <span class="dt">mode =</span> <span class="st">&quot;markers&quot;</span>, 
+        <span class="dt">color =</span> Severity, <span class="dt">size =</span> Severity)</code></pre></div>
+<div id="htmlwidget-ee71995193ee0b2fee0a" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ee71995193ee0b2fee0a">{"x":{"data":[{"type":"scatter","inherit":false,"x":[250.48,274.78,244.52,797.8,213.71,298.6,298.13,362.23,250.57,248.56,297.9,342.31,229.09,228.48,293.87,367.46,153.62,201.67,238.21,256.21,208.59,202.8,236.06,352.49,207.57,202.67,253.63,340.56,192,196.33,259.79,342.58],"y":[21,40,23,5,63,171,92,44,140,343,318,129,123,448,361,169,151,479,381,166,245,970,719,304,266,859,504,162,260,578,312,96],"mode":"markers","size":[250.48,274.78,244.52,797.8,213.71,298.6,298.13,362.23,250.57,248.56,297.9,342.31,229.09,228.48,293.87,367.46,153.62,201.67,238.21,256.21,208.59,202.8,236.06,352.49,207.57,202.67,253.63,340.56,192,196.33,259.79,342.58],"marker":{"colorbar":{"title":"Severity"},"colorscale":[[0,"#440154"],[0.111111111111111,"#482878"],[0.222222222222222,"#3E4A89"],[0.333333333333333,"#31688E"],[0.444444444444444,"#26828E"],[0.555555555555556,"#1F9E89"],[0.666666666666667,"#35B779"],[0.777777777777778,"#6DCD59"],[0.888888888888889,"#B4DE2C"],[1,"#FDE725"]],"color":[250.48,274.78,244.52,797.8,213.71,298.6,298.13,362.23,250.57,248.56,297.9,342.31,229.09,228.48,293.87,367.46,153.62,201.67,238.21,256.21,208.59,202.8,236.06,352.49,207.57,202.67,253.63,340.56,192,196.33,259.79,342.58],"size":[1529.51566558524,1677.89969095142,1493.12188817033,4871.63684926503,1304.98559921839,1823.35267384124,1820.48269474979,2211.89899211491,1530.06523604956,1517.79149567977,1819.07823689653,2090.26072934559,1398.90108523205,1395.17621875166,1794.46969277202,2243.83514243035,938.05571920794,1231.46528376947,1454.59089228306,1564.5049851469,1273.72114613712,1238.36544626592,1441.46226452432,2152.42325519859,1267.49268087483,1237.5716222619,1548.75063183641,2079.57463698383,1172.41699054761,1198.85743621986,1586.36567694982,2091.90944073855],"sizemode":"area"},"text":["Severity (size): 250.48","Severity (size): 274.78","Severity (size): 244.52","Severity (size): 797.8","Severity (size): 213.71","Severity (size): 298.6","Severity (size): 298.13","Severity (size): 362.23","Severity (size): 250.57","Severity (size): 248.56","Severity (size): 297.9","Severity (size): 342.31","Severity (size): 229.09","Severity (size): 228.48","Severity (size): 293.87","Severity (size): 367.46","Severity (size): 153.62","Severity (size): 201.67","Severity (size): 238.21","Severity (size): 256.21","Severity (size): 208.59","Severity (size): 202.8","Severity (size): 236.06","Severity (size): 352.49","Severity (size): 207.57","Severity (size): 202.67","Severity (size): 253.63","Severity (size): 340.56","Severity (size): 192","Severity (size): 196.33","Severity (size): 259.79","Severity (size): 342.58"]}],"layout":{"xaxis":{"title":"Severity"},"yaxis":{"title":"Claim_Count"},"hovermode":"closest","margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="other-visualization-packages" class="section level2">
+<h2><span class="header-section-number">5.3</span> <strong>Other visualization packages</strong></h2>
+<ul>
+<li><a href="http://ramnathv.github.io/rCharts/">rcharts</a></li>
+<li><a href="https://rstudio.github.io/leaflet/">leaflet</a></li>
+<li><a href="http://ggvis.rstudio.com/">ggvis</a></li>
+<li><a href="http://www.htmlwidgets.org/">htmlwidget</a></li>
+<li><a href="https://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html">googleVis</a></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="transform.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="model.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-viz.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

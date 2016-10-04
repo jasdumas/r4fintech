@@ -1,0 +1,15 @@
+# Communicate {#communicate}
+
+In Data Science our role is to be translators. We are tasked with translating buisness-driven inquires to discovering implicit knowledge from data and transforming knowledge into actionable results. 
+
+## **Tools for Communication and Reproducible Research**
+
+  * [`knitr`](http://yihui.name/knitr/): Provides a general-purpose tool for dynamic report generation in R using Literate Programming techniques.
+
+  * [`rmarkdown`](http://rmarkdown.rstudio.com/): Convert R Markdown documents into a variety of formats (HTML, Word, PDF, Notebooks, Presentaions, dashboards).
+  
+  * [Bookdown (meta)](https://bookdown.org/yihui/bookdown/): Output formats and utilities for authoring books with R Markdown.
+  
+  * [`shiny`](http://shiny.rstudio.com/): Makes it incredibly easy to build interactive web applications with R. Automatic "reactive" binding between inputs and outputs and extensive pre-built widgets make it possible to build beautiful, responsive, and powerful applications with minimal effort.
+  
+  * [`flexdashboard`](http://rmarkdown.rstudio.com/flexdashboard/): Format for converting an R Markdown document to a grid oriented dashboard. The dashboard flexibly adapts the size of it's components to the containing web page.
