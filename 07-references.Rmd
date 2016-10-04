@@ -1,1 +1,15 @@
-`r if (knitr:::is_html_output()) '# References {-}'`
+
+# References {#references}
+
+
+## R Resources
+
++ [**R for Data Science**](http://r4ds.had.co.nz/)
++ [bookdown: Authoring Books with R Markdown](https://bookdown.org/yihui/bookdown/)
+
+
+## Financial Technology Resources
+
++ [Wharton FinTech](https://medium.com/wharton-fintech)
++ [#fintech](https://twitter.com/hashtag/fintech?lang=en)
+
