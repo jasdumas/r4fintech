@@ -26,7 +26,7 @@
 <meta name="author" content="Jasmine Dumas">
 
   
-<meta name="date" content="2016-10-04">
+<meta name="date" content="2016-10-09">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -109,8 +109,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">R for FinTech</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#welcome"><i class="fa fa-check"></i><b>1.1</b> <strong>Welcome</strong></a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#the-purpose-of-this-book"><i class="fa fa-check"></i><b>1.2</b> <strong>The purpose of this book</strong></a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#how-this-book-is-organized"><i class="fa fa-check"></i><b>1.3</b> <strong>How this book is organized</strong></a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.4</b> <strong>Prerequisites</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>2</b> Import</a><ul>
 <li class="chapter" data-level="2.1" data-path="import.html"><a href="import.html#tabular-data"><i class="fa fa-check"></i><b>2.1</b> <strong>Tabular Data</strong></a></li>
@@ -118,6 +121,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3" data-path="import.html"><a href="import.html#relational-data"><i class="fa fa-check"></i><b>2.3</b> <strong>Relational Data</strong></a></li>
 <li class="chapter" data-level="2.4" data-path="import.html"><a href="import.html#distributed-data"><i class="fa fa-check"></i><b>2.4</b> <strong>Distributed Data</strong></a></li>
 <li class="chapter" data-level="2.5" data-path="import.html"><a href="import.html#different-data-formats"><i class="fa fa-check"></i><b>2.5</b> <strong>Different Data Formats</strong></a></li>
+<li class="chapter" data-level="2.6" data-path="import.html"><a href="import.html#accessing-zipped-data-files"><i class="fa fa-check"></i><b>2.6</b> <strong>Accessing Zipped Data files</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="tidy.html"><a href="tidy.html"><i class="fa fa-check"></i><b>3</b> Tidy</a></li>
 <li class="chapter" data-level="4" data-path="transform.html"><a href="transform.html"><i class="fa fa-check"></i><b>4</b> Transform</a></li>
@@ -216,8 +220,8 @@ g2</code></pre></div>
 ## 6   B  DriveShort   298.60         171</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot_ly</span>(AutoCollision, <span class="dt">x =</span> Severity, <span class="dt">y =</span> Claim_Count, <span class="dt">mode =</span> <span class="st">&quot;markers&quot;</span>, 
         <span class="dt">color =</span> Severity, <span class="dt">size =</span> Severity)</code></pre></div>
-<div id="htmlwidget-b3d1f5c9f47706058b17" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b3d1f5c9f47706058b17">{"x":{"data":[{"type":"scatter","inherit":false,"x":[250.48,274.78,244.52,797.8,213.71,298.6,298.13,362.23,250.57,248.56,297.9,342.31,229.09,228.48,293.87,367.46,153.62,201.67,238.21,256.21,208.59,202.8,236.06,352.49,207.57,202.67,253.63,340.56,192,196.33,259.79,342.58],"y":[21,40,23,5,63,171,92,44,140,343,318,129,123,448,361,169,151,479,381,166,245,970,719,304,266,859,504,162,260,578,312,96],"mode":"markers","size":[250.48,274.78,244.52,797.8,213.71,298.6,298.13,362.23,250.57,248.56,297.9,342.31,229.09,228.48,293.87,367.46,153.62,201.67,238.21,256.21,208.59,202.8,236.06,352.49,207.57,202.67,253.63,340.56,192,196.33,259.79,342.58],"marker":{"colorbar":{"title":"Severity"},"colorscale":[[0,"#440154"],[0.111111111111111,"#482878"],[0.222222222222222,"#3E4A89"],[0.333333333333333,"#31688E"],[0.444444444444444,"#26828E"],[0.555555555555556,"#1F9E89"],[0.666666666666667,"#35B779"],[0.777777777777778,"#6DCD59"],[0.888888888888889,"#B4DE2C"],[1,"#FDE725"]],"color":[250.48,274.78,244.52,797.8,213.71,298.6,298.13,362.23,250.57,248.56,297.9,342.31,229.09,228.48,293.87,367.46,153.62,201.67,238.21,256.21,208.59,202.8,236.06,352.49,207.57,202.67,253.63,340.56,192,196.33,259.79,342.58],"size":[1529.51566558524,1677.89969095142,1493.12188817033,4871.63684926503,1304.98559921839,1823.35267384124,1820.48269474979,2211.89899211491,1530.06523604956,1517.79149567977,1819.07823689653,2090.26072934559,1398.90108523205,1395.17621875166,1794.46969277202,2243.83514243035,938.05571920794,1231.46528376947,1454.59089228306,1564.5049851469,1273.72114613712,1238.36544626592,1441.46226452432,2152.42325519859,1267.49268087483,1237.5716222619,1548.75063183641,2079.57463698383,1172.41699054761,1198.85743621986,1586.36567694982,2091.90944073855],"sizemode":"area"},"text":["Severity (size): 250.48","Severity (size): 274.78","Severity (size): 244.52","Severity (size): 797.8","Severity (size): 213.71","Severity (size): 298.6","Severity (size): 298.13","Severity (size): 362.23","Severity (size): 250.57","Severity (size): 248.56","Severity (size): 297.9","Severity (size): 342.31","Severity (size): 229.09","Severity (size): 228.48","Severity (size): 293.87","Severity (size): 367.46","Severity (size): 153.62","Severity (size): 201.67","Severity (size): 238.21","Severity (size): 256.21","Severity (size): 208.59","Severity (size): 202.8","Severity (size): 236.06","Severity (size): 352.49","Severity (size): 207.57","Severity (size): 202.67","Severity (size): 253.63","Severity (size): 340.56","Severity (size): 192","Severity (size): 196.33","Severity (size): 259.79","Severity (size): 342.58"]}],"layout":{"xaxis":{"title":"Severity"},"yaxis":{"title":"Claim_Count"},"hovermode":"closest","margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-92f51c6efc2c154ae244" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-92f51c6efc2c154ae244">{"x":{"data":[{"type":"scatter","inherit":false,"x":[250.48,274.78,244.52,797.8,213.71,298.6,298.13,362.23,250.57,248.56,297.9,342.31,229.09,228.48,293.87,367.46,153.62,201.67,238.21,256.21,208.59,202.8,236.06,352.49,207.57,202.67,253.63,340.56,192,196.33,259.79,342.58],"y":[21,40,23,5,63,171,92,44,140,343,318,129,123,448,361,169,151,479,381,166,245,970,719,304,266,859,504,162,260,578,312,96],"mode":"markers","size":[250.48,274.78,244.52,797.8,213.71,298.6,298.13,362.23,250.57,248.56,297.9,342.31,229.09,228.48,293.87,367.46,153.62,201.67,238.21,256.21,208.59,202.8,236.06,352.49,207.57,202.67,253.63,340.56,192,196.33,259.79,342.58],"marker":{"colorbar":{"title":"Severity"},"colorscale":[[0,"#440154"],[0.111111111111111,"#482878"],[0.222222222222222,"#3E4A89"],[0.333333333333333,"#31688E"],[0.444444444444444,"#26828E"],[0.555555555555556,"#1F9E89"],[0.666666666666667,"#35B779"],[0.777777777777778,"#6DCD59"],[0.888888888888889,"#B4DE2C"],[1,"#FDE725"]],"color":[250.48,274.78,244.52,797.8,213.71,298.6,298.13,362.23,250.57,248.56,297.9,342.31,229.09,228.48,293.87,367.46,153.62,201.67,238.21,256.21,208.59,202.8,236.06,352.49,207.57,202.67,253.63,340.56,192,196.33,259.79,342.58],"size":[1529.51566558524,1677.89969095142,1493.12188817033,4871.63684926503,1304.98559921839,1823.35267384124,1820.48269474979,2211.89899211491,1530.06523604956,1517.79149567977,1819.07823689653,2090.26072934559,1398.90108523205,1395.17621875166,1794.46969277202,2243.83514243035,938.05571920794,1231.46528376947,1454.59089228306,1564.5049851469,1273.72114613712,1238.36544626592,1441.46226452432,2152.42325519859,1267.49268087483,1237.5716222619,1548.75063183641,2079.57463698383,1172.41699054761,1198.85743621986,1586.36567694982,2091.90944073855],"sizemode":"area"},"text":["Severity (size): 250.48","Severity (size): 274.78","Severity (size): 244.52","Severity (size): 797.8","Severity (size): 213.71","Severity (size): 298.6","Severity (size): 298.13","Severity (size): 362.23","Severity (size): 250.57","Severity (size): 248.56","Severity (size): 297.9","Severity (size): 342.31","Severity (size): 229.09","Severity (size): 228.48","Severity (size): 293.87","Severity (size): 367.46","Severity (size): 153.62","Severity (size): 201.67","Severity (size): 238.21","Severity (size): 256.21","Severity (size): 208.59","Severity (size): 202.8","Severity (size): 236.06","Severity (size): 352.49","Severity (size): 207.57","Severity (size): 202.67","Severity (size): 253.63","Severity (size): 340.56","Severity (size): 192","Severity (size): 196.33","Severity (size): 259.79","Severity (size): 342.58"]}],"layout":{"xaxis":{"title":"Severity"},"yaxis":{"title":"Claim_Count"},"hovermode":"closest","margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="other-visualization-packages" class="section level2">
 <h2><span class="header-section-number">5.3</span> <strong>Other visualization packages</strong></h2>
@@ -267,7 +271,7 @@ gitbook.start({
 "link": "https://github.com/jasdumas/r4fintech/edit/master/04-viz.Rmd",
 "text": null
 },
-"download": null,
+"download": ["r4fintech.pdf"],
 "toc": {
 "collapse": "subsection"
 }

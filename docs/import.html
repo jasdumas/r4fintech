@@ -26,7 +26,7 @@
 <meta name="author" content="Jasmine Dumas">
 
   
-<meta name="date" content="2016-10-04">
+<meta name="date" content="2016-10-09">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -109,8 +109,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">R for FinTech</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#welcome"><i class="fa fa-check"></i><b>1.1</b> <strong>Welcome</strong></a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#the-purpose-of-this-book"><i class="fa fa-check"></i><b>1.2</b> <strong>The purpose of this book</strong></a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#how-this-book-is-organized"><i class="fa fa-check"></i><b>1.3</b> <strong>How this book is organized</strong></a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.4</b> <strong>Prerequisites</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>2</b> Import</a><ul>
 <li class="chapter" data-level="2.1" data-path="import.html"><a href="import.html#tabular-data"><i class="fa fa-check"></i><b>2.1</b> <strong>Tabular Data</strong></a></li>
@@ -118,6 +121,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3" data-path="import.html"><a href="import.html#relational-data"><i class="fa fa-check"></i><b>2.3</b> <strong>Relational Data</strong></a></li>
 <li class="chapter" data-level="2.4" data-path="import.html"><a href="import.html#distributed-data"><i class="fa fa-check"></i><b>2.4</b> <strong>Distributed Data</strong></a></li>
 <li class="chapter" data-level="2.5" data-path="import.html"><a href="import.html#different-data-formats"><i class="fa fa-check"></i><b>2.5</b> <strong>Different Data Formats</strong></a></li>
+<li class="chapter" data-level="2.6" data-path="import.html"><a href="import.html#accessing-zipped-data-files"><i class="fa fa-check"></i><b>2.6</b> <strong>Accessing Zipped Data files</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="tidy.html"><a href="tidy.html"><i class="fa fa-check"></i><b>3</b> Tidy</a></li>
 <li class="chapter" data-level="4" data-path="transform.html"><a href="transform.html"><i class="fa fa-check"></i><b>4</b> Transform</a></li>
@@ -162,36 +166,90 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="import" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Import</h1>
-<p>The first step in the typical data science project involves importing data into R. There are numerous packages for different data types all with varying preferences on speed and efficiency. Here are some R Packages for Importing Data into R:</p>
+<p>The first step in the typical data science project involves importing data into R. There are numerous packages for different data types all with varying preferences on speed and efficiency. Here are some R packages for importing data into R:</p>
 <div id="tabular-data" class="section level2">
 <h2><span class="header-section-number">2.1</span> <strong>Tabular Data</strong></h2>
-<p>Tabular data consists of variables, observations and values.</p>
+<p>Tabular data consists of variables, observations and values to form data frames. This is the most common format of organized data and many packages are developed to work with this type of data.</p>
 <div class="figure">
 <img src="01_var_obs_val.PNG" />
 
 </div>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/readr/index.html"><code>readr</code></a>: Read flat/tabular text files from disk (or a connection). readr has some benefits over the base/utils version as smart column type parsing and not automatically converting strings into factors.</li>
+<li><a href="https://CRAN.R-project.org/package=readr"><code>readr</code></a>: Read flat/tabular text files from disk (or a connection). readr has some benefits over the base/utils version as smart column type parsing and not automatically converting strings into factors.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;file_name.csv&quot;</span>)</code></pre></div>
+<p>Here is an example of <a href="http://archive.ics.uci.edu/ml/datasets/Credit+Approval">credit card applications</a> from the <a href="http://archive.ics.uci.edu/ml/index.html">UCI Machine Learning Repository</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+cc_apps &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://archive.ics.uci.edu/ml/machine-learning-databases/credit-screening/crx.data&quot;</span>, <span class="dt">col_names =</span> F)
+<span class="kw">head</span>(cc_apps)</code></pre></div>
+<pre><code>## # A tibble: 6 × 16
+##      X1    X2    X3    X4    X5    X6    X7    X8    X9   X10   X11   X12
+##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1     b 30.83 0.000     u     g     w     v  1.25     t     t    01     f
+## 2     a 58.67 4.460     u     g     q     h  3.04     t     t    06     f
+## 3     a 24.50 0.500     u     g     q     h  1.50     t     f     0     f
+## 4     b 27.83 1.540     u     g     w     v  3.75     t     t    05     t
+## 5     b 20.17 5.625     u     g     w     v  1.71     t     f     0     f
+## 6     b 32.08 4.000     u     g     m     v  2.50     t     f     0     t
+## # ... with 4 more variables: X13 &lt;chr&gt;, X14 &lt;chr&gt;, X15 &lt;int&gt;, X16 &lt;chr&gt;</code></pre>
 <ul>
 <li><a href="https://cran.r-project.org/package=readxl"><code>readxl</code></a>: Import excel files into R. Supports ‘.xls’ via the embedded ‘libxls’ C library (<a href="http://sourceforge.net/projects/libxls/" class="uri">http://sourceforge.net/projects/libxls/</a>) and ‘.xlsx’ via the embedded ‘RapidXML’ C++ library (<a href="http://rapidxml.sourceforge.net" class="uri">http://rapidxml.sourceforge.net</a>). Works on Windows, Mac and Linux without external dependencies.</li>
 </ul>
+<p>Here is an example from the <a href="http://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients">default of credit card clients data set</a> from the <a href="http://archive.ics.uci.edu/ml/index.html">UCI Machine Learning Repository</a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># download the excel file first from the link</span>
+<span class="kw">library</span>(readxl)
+default_cc &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;default of credit card clients.xls&quot;</span>)
+
+<span class="co"># alternative reading from a URL</span>
+<span class="kw">require</span>(RCurl)
+<span class="kw">require</span>(gdata)
+url &lt;-<span class="st"> &quot;http://archive.ics.uci.edu/ml/machine-learning-databases/00350/default%20of%20credit%20card%20clients.xls&quot;</span>
+default_cc &lt;-<span class="st"> </span><span class="kw">read.xls</span>(url)
+
+<span class="kw">head</span>(default_cc)</code></pre></div>
+<pre><code>##    X        X1  X2        X3       X4  X5    X6    X7    X8    X9   X10
+## 1 ID LIMIT_BAL SEX EDUCATION MARRIAGE AGE PAY_0 PAY_2 PAY_3 PAY_4 PAY_5
+## 2  1     20000   2         2        1  24     2     2    -1    -1    -2
+## 3  2    120000   2         2        2  26    -1     2     0     0     0
+## 4  3     90000   2         2        2  34     0     0     0     0     0
+## 5  4     50000   2         2        1  37     0     0     0     0     0
+## 6  5     50000   1         2        1  57    -1     0    -1     0     0
+##     X11       X12       X13       X14       X15       X16       X17
+## 1 PAY_6 BILL_AMT1 BILL_AMT2 BILL_AMT3 BILL_AMT4 BILL_AMT5 BILL_AMT6
+## 2    -2      3913      3102       689         0         0         0
+## 3     2      2682      1725      2682      3272      3455      3261
+## 4     0     29239     14027     13559     14331     14948     15549
+## 5     0     46990     48233     49291     28314     28959     29547
+## 6     0      8617      5670     35835     20940     19146     19131
+##        X18      X19      X20      X21      X22      X23
+## 1 PAY_AMT1 PAY_AMT2 PAY_AMT3 PAY_AMT4 PAY_AMT5 PAY_AMT6
+## 2        0      689        0        0        0        0
+## 3        0     1000     1000     1000        0     2000
+## 4     1518     1500     1000     1000     1000     5000
+## 5     2000     2019     1200     1100     1069     1000
+## 6     2000    36681    10000     9000      689      679
+##                            Y
+## 1 default payment next month
+## 2                          1
+## 3                          1
+## 4                          0
+## 5                          0
+## 6                          0</code></pre>
 </div>
 <div id="hierarchical-data" class="section level2">
 <h2><span class="header-section-number">2.2</span> <strong>Hierarchical Data</strong></h2>
-<p>Hierarchical Data is a tree-structure such as <a href="https://en.wikipedia.org/wiki/XML">XML</a>, HTML, JSON.</p>
+<p>Hierarchical Data is a tree-structure data format such as <a href="https://en.wikipedia.org/wiki/XML">XML</a>, <a href="https://en.wikipedia.org/wiki/HTML">HTML</a>, <a href="https://en.wikipedia.org/wiki/JSON">JSON</a>.</p>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/jsonlite/index.html"><code>jsonlite</code></a>: A fast JSON parser and generator optimized for statistical data and the web.</li>
-<li><a href="https://cran.r-project.org/web/packages/xml2/index.html"><code>xml2</code></a>: Work with XML files using a simple, consistent interface. Built on top of the ‘libxml2’ C library.</li>
-<li><a href="https://cran.r-project.org/web/packages/rvest/index.html"><code>rvest</code></a>: Wrappers around the ‘xml2’ and ‘httr’ packages to make it easy to download, then manipulate, HTML and XML.</li>
+<li><a href="https://CRAN.R-project.org/package=jsonlite"><code>jsonlite</code></a>: A fast JSON parser and generator optimized for statistical data and the web.</li>
+<li><a href="https://CRAN.R-project.org/package=xml2"><code>xml2</code></a>: Work with XML files using a simple, consistent interface. Built on top of the ‘libxml2’ C library.</li>
+<li><a href="https://CRAN.R-project.org/package=rvest"><code>rvest</code></a>: Wrappers around the ‘xml2’ and ‘httr’ packages to make it easy to download, then manipulate, HTML and XML.</li>
 </ul>
 </div>
 <div id="relational-data" class="section level2">
 <h2><span class="header-section-number">2.3</span> <strong>Relational Data</strong></h2>
+<p><a href="https://en.wikipedia.org/wiki/Relational_database">Relational Data</a> consists of a collection of data items (tables) organized as a set based on the data contents and its relation.</p>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/DBI/index.html"><code>DBI</code></a>: A database interface definition for communication between R and relational database management systems. All classes in this package are virtual and need to be extended by the various R/DBMS implementations.</li>
-<li><a href="https://cran.r-project.org/web/packages/RMySQL/index.html"><code>RMySQL</code></a>: Implements ‘DBI’ Interface to ‘MySQL’ and ‘MariaDB’ Databases.</li>
+<li><a href="https://CRAN.R-project.org/package=DBI"><code>DBI</code></a>: A database interface definition for communication between R and relational database management systems. All classes in this package are virtual and need to be extended by the various R/DBMS implementations.</li>
+<li><a href="https://CRAN.R-project.org/package=RMySQL"><code>RMySQL</code></a>: Implements ‘DBI’ Interface to ‘MySQL’ and ‘MariaDB’ Databases.</li>
 </ul>
 </div>
 <div id="distributed-data" class="section level2">
@@ -203,12 +261,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="different-data-formats" class="section level2">
 <h2><span class="header-section-number">2.5</span> <strong>Different Data Formats</strong></h2>
+<p>The R programming language and environment is continuously increasing its capacity with new packages to work with different types of proprietory data formats from statistical software packages that are used on industry teams.</p>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/haven/index.html"><code>haven</code></a>: Import and Export ‘SPSS’, ‘Stata’ and ‘SAS’ Files.</li>
+<li><a href="https://CRAN.R-project.org/package=haven"><code>haven</code></a>: Import and Export ‘SPSS’, ‘Stata’ and ‘SAS’ Files.</li>
 </ul>
+<p>Here is an example from <a href="http://www.businessandeconomics.mq.edu.au/our_departments/Applied_Finance_and_Actuarial_Studies/research/books/GLMsforInsuranceData/data_sets">Macquarie University data repository for the applied finance and actuarial studies</a> of importing a <a href="http://www.sas.com/en_us/home.html">SAS</a> data set:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(haven)
 claims &lt;-<span class="st"> </span><span class="kw">read_sas</span>(<span class="st">&quot;http://www.businessandeconomics.mq.edu.au/our_departments/Applied_Finance_and_Actuarial_Studies/acst_docs/glms_for_insurance_data/data/claims_sas_miner.sas7bdat&quot;</span>)
-
 <span class="kw">head</span>(claims)</code></pre></div>
 <pre><code>## # A tibble: 6 × 33
 ##          ID KIDSDRIV   PLCYDATE TRAVTIME    CAR_USE POLICYNO BLUEBOOK
@@ -227,8 +286,38 @@ claims &lt;-<span class="st"> </span><span class="kw">read_sas</span>(<span clas
 ## #   PARENT1 &lt;chr&gt;, JOBCLASS &lt;chr&gt;, MAX_EDUC &lt;chr&gt;, HOME_VAL &lt;dbl&gt;,
 ## #   SAMEHOME &lt;dbl&gt;, DENSITY &lt;chr&gt;, YEARQTR &lt;chr&gt;</code></pre>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/foreign/index.html"><code>foreign</code></a>: Functions for reading and writing data stored by some versions of Epi Info, Minitab, S, SAS, SPSS, Stata, Systat and Weka and for reading and writing some dBase files.</li>
+<li><a href="https://CRAN.R-project.org/package=foreign"><code>foreign</code></a>: Functions for reading and writing data stored by some versions of Epi Info, Minitab, S, SAS, SPSS, Stata, Systat and Weka and for reading and writing some dBase files.</li>
 </ul>
+</div>
+<div id="accessing-zipped-data-files" class="section level2">
+<h2><span class="header-section-number">2.6</span> <strong>Accessing Zipped Data files</strong></h2>
+<p><a href="https://en.wikipedia.org/wiki/Zip_(file_format)">Zip archives</a> are actually more a ‘filesystem’ with content, meta data, and/or documentation.</p>
+<ol style="list-style-type: decimal">
+<li>Create a temp file. file name (eg tempfile())</li>
+<li>Use download.file() to download the file into the temp object that is being reserved for the file</li>
+<li>Use unzip() to extract the target file from temp file by reading the meta data on what specific data set you want which is contained in the zip file</li>
+<li>Remove the temp file via unlink()</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">temp &lt;-<span class="st"> </span><span class="kw">tempfile</span>()
+<span class="kw">download.file</span>(<span class="st">&quot;http://archive.ics.uci.edu/ml/machine-learning-databases/00222/bank.zip&quot;</span>,temp)
+<span class="kw">unzip</span>(temp, <span class="st">&quot;bank.csv&quot;</span>)
+bank_marketing &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;bank.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;;&quot;</span>) <span class="co"># sometimes its the default</span>
+<span class="kw">unlink</span>(temp)
+<span class="kw">head</span>(bank_marketing)</code></pre></div>
+<pre><code>##   age         job marital education default balance housing loan  contact
+## 1  30  unemployed married   primary      no    1787      no   no cellular
+## 2  33    services married secondary      no    4789     yes  yes cellular
+## 3  35  management  single  tertiary      no    1350     yes   no cellular
+## 4  30  management married  tertiary      no    1476     yes  yes  unknown
+## 5  59 blue-collar married secondary      no       0     yes   no  unknown
+## 6  35  management  single  tertiary      no     747      no   no cellular
+##   day month duration campaign pdays previous poutcome  y
+## 1  19   oct       79        1    -1        0  unknown no
+## 2  11   may      220        1   339        4  failure no
+## 3  16   apr      185        1   330        1  failure no
+## 4   3   jun      199        4    -1        0  unknown no
+## 5   5   may      226        1    -1        0  unknown no
+## 6  23   feb      141        2   176        3  failure no</code></pre>
 
 </div>
 </div>
@@ -268,7 +357,7 @@ gitbook.start({
 "link": "https://github.com/jasdumas/r4fintech/edit/master/01-import.Rmd",
 "text": null
 },
-"download": null,
+"download": ["r4fintech.pdf"],
 "toc": {
 "collapse": "subsection"
 }

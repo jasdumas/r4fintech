@@ -26,7 +26,7 @@
 <meta name="author" content="Jasmine Dumas">
 
   
-<meta name="date" content="2016-10-04">
+<meta name="date" content="2016-10-09">
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -109,8 +109,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">R for FinTech</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.1</b> Prerequisites</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#welcome"><i class="fa fa-check"></i><b>1.1</b> <strong>Welcome</strong></a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#the-purpose-of-this-book"><i class="fa fa-check"></i><b>1.2</b> <strong>The purpose of this book</strong></a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#how-this-book-is-organized"><i class="fa fa-check"></i><b>1.3</b> <strong>How this book is organized</strong></a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.4</b> <strong>Prerequisites</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="import.html"><a href="import.html"><i class="fa fa-check"></i><b>2</b> Import</a><ul>
 <li class="chapter" data-level="2.1" data-path="import.html"><a href="import.html#tabular-data"><i class="fa fa-check"></i><b>2.1</b> <strong>Tabular Data</strong></a></li>
@@ -118,6 +121,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.3" data-path="import.html"><a href="import.html#relational-data"><i class="fa fa-check"></i><b>2.3</b> <strong>Relational Data</strong></a></li>
 <li class="chapter" data-level="2.4" data-path="import.html"><a href="import.html#distributed-data"><i class="fa fa-check"></i><b>2.4</b> <strong>Distributed Data</strong></a></li>
 <li class="chapter" data-level="2.5" data-path="import.html"><a href="import.html#different-data-formats"><i class="fa fa-check"></i><b>2.5</b> <strong>Different Data Formats</strong></a></li>
+<li class="chapter" data-level="2.6" data-path="import.html"><a href="import.html#accessing-zipped-data-files"><i class="fa fa-check"></i><b>2.6</b> <strong>Accessing Zipped Data files</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="tidy.html"><a href="tidy.html"><i class="fa fa-check"></i><b>3</b> Tidy</a></li>
 <li class="chapter" data-level="4" data-path="transform.html"><a href="transform.html"><i class="fa fa-check"></i><b>4</b> Transform</a></li>
@@ -286,9 +290,9 @@ fit &lt;-<span class="st"> </span><span class="kw">gbm</span>(Claim_Count ~<span
 <span class="kw">summary</span>(fit)</code></pre></div>
 <p><img src="r4fintech_files/figure-html/gbm-exp1-1.png" width="672" /></p>
 <pre><code>##                     var  rel.inf
-## Age                 Age 43.63192
-## Vehicle_Use Vehicle_Use 42.83645
-## Severity       Severity 13.53163</code></pre>
+## Vehicle_Use Vehicle_Use 47.60538
+## Age                 Age 40.59531
+## Severity       Severity 11.79931</code></pre>
 </div>
 <div id="ensemble-learning" class="section level2">
 <h2><span class="header-section-number">6.4</span> <strong>Ensemble learning</strong></h2>
@@ -345,7 +349,7 @@ gitbook.start({
 "link": "https://github.com/jasdumas/r4fintech/edit/master/05-model.Rmd",
 "text": null
 },
-"download": null,
+"download": ["r4fintech.pdf"],
 "toc": {
 "collapse": "subsection"
 }
