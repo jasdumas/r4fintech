@@ -18,6 +18,8 @@ This project is released with a [Contributor Code of Conduct](https://github.com
 
 10-09-2016: *in-development* - Currently working on the introduction and the import chapter :black_nib:
 
+10-30-2016: *in-development* - Structuring the format to enable multiple examples per package highlight. Updates references of packages and adding a seperate page for learning resources for R and fintech. 
+
 ## Contact
 
 Author: Jasmine Dumas [@jasdumas](https://twitter.com/jasdumas) | [jasdumas.github.io](http://jasdumas.github.io/) 

@@ -34,8 +34,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="viz.html">
-<link rel="next" href="communicate.html">
+<link rel="prev" href="references.html">
+
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -200,153 +200,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="model" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Model</h1>
-<p>Build Models</p>
-<div id="lm" class="section level2">
-<h2><span class="header-section-number">6.1</span> <strong>LM</strong></h2>
+<div id="resources" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Learning Resources</h1>
+<div id="r-programming-resources" class="section level2">
+<h2><span class="header-section-number">9.1</span> R Programming Resources</h2>
 <ul>
-<li><a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html"><code>lm()</code></a>: In statistics, the term linear model is used for drawing primary associations with a response (dependent variable) and covariate(s) (independent variable(s)) as a regression analysis technique. <a href="https://en.wikipedia.org/wiki/Linear_model">Source: Wikipedia</a></li>
-</ul>
-<p><strong>Examples:</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(insuranceData)
-<span class="kw">data</span>(<span class="st">&quot;AutoCollision&quot;</span>)
-<span class="kw">head</span>(AutoCollision)</code></pre></div>
-<pre><code>##   Age Vehicle_Use Severity Claim_Count
-## 1   A    Pleasure   250.48          21
-## 2   A  DriveShort   274.78          40
-## 3   A   DriveLong   244.52          23
-## 4   A    Business   797.80           5
-## 5   B    Pleasure   213.71          63
-## 6   B  DriveShort   298.60         171</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit &lt;-<span class="st"> </span><span class="kw">lm</span>(Severity ~<span class="st"> </span>Vehicle_Use +<span class="st"> </span>Age +<span class="st"> </span>Claim_Count, <span class="dt">data =</span> AutoCollision)
-<span class="kw">summary</span>(fit)</code></pre></div>
-<pre><code>## 
-## Call:
-## lm(formula = Severity ~ Vehicle_Use + Age + Claim_Count, data = AutoCollision)
-## 
-## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -130.430  -24.580   -1.353   23.368  274.270 
-## 
-## Coefficients:
-##                        Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)            523.0303    51.1632  10.223 2.18e-09 ***
-## Vehicle_UseDriveLong  -150.3807    50.6663  -2.968 0.007603 ** 
-## Vehicle_UseDriveShort -198.6347    65.8048  -3.019 0.006786 ** 
-## Vehicle_UsePleasure   -184.4265    40.9901  -4.499 0.000219 ***
-## AgeB                  -105.7532    58.6628  -1.803 0.086521 .  
-## AgeC                  -128.0870    65.4756  -1.956 0.064546 .  
-## AgeD                  -137.4725    68.6554  -2.002 0.058992 .  
-## AgeE                  -206.6701    70.2024  -2.944 0.008026 ** 
-## AgeF                  -195.6402    97.7303  -2.002 0.059052 .  
-## AgeG                  -183.3416    85.0540  -2.156 0.043476 *  
-## AgeH                  -173.1478    71.6721  -2.416 0.025387 *  
-## Claim_Count              0.1000     0.1468   0.681 0.503380    
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 81.67 on 20 degrees of freedom
-## Multiple R-squared:  0.6472, Adjusted R-squared:  0.4532 
-## F-statistic: 3.336 on 11 and 20 DF,  p-value: 0.009379</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># this is not the best model we could have constructed as the lm assumes the error distribution of the response to be normal (gaussian) - and for a severity model we know that a multiplicative Gamma distribution is more appropriate.</span></code></pre></div>
-</div>
-<div id="glm" class="section level2">
-<h2><span class="header-section-number">6.2</span> <strong>GLM</strong></h2>
-<ul>
-<li><a href="http://www.statmethods.net/advstats/glm.html"><code>glm()</code></a>: In statistics, the generalized linear model (GLM) is a flexible generalization of ordinary linear regression that allows for response variables that have error distribution models other than a normal distribution. The GLM generalizes linear regression by allowing the linear model to be related to the response variable via a link function and by allowing the magnitude of the variance of each measurement to be a function of its predicted value. <a href="https://en.wikipedia.org/wiki/Generalized_linear_model">Source: Wikipedia</a></li>
-</ul>
-<p><strong>Examples: </strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(insuranceData)
-<span class="kw">data</span>(<span class="st">&quot;AutoCollision&quot;</span>)
-
-fit &lt;-<span class="st"> </span><span class="kw">glm</span>(Severity ~<span class="st"> </span>Vehicle_Use +<span class="st"> </span>Age +<span class="st"> </span>Claim_Count, <span class="dt">data =</span> AutoCollision, <span class="dt">family =</span> <span class="kw">Gamma</span>(<span class="dt">link =</span> <span class="st">&quot;inverse&quot;</span>))
-<span class="kw">summary</span>(fit)</code></pre></div>
-<pre><code>## 
-## Call:
-## glm(formula = Severity ~ Vehicle_Use + Age + Claim_Count, family = Gamma(link = &quot;inverse&quot;), 
-##     data = AutoCollision)
-## 
-## Deviance Residuals: 
-##      Min        1Q    Median        3Q       Max  
-## -0.36252  -0.07729   0.00388   0.06376   0.23788  
-## 
-## Coefficients:
-##                         Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)            1.576e-03  1.939e-04   8.131 9.07e-08 ***
-## Vehicle_UseDriveLong   1.206e-03  2.750e-04   4.388 0.000284 ***
-## Vehicle_UseDriveShort  1.752e-03  3.760e-04   4.659 0.000151 ***
-## Vehicle_UsePleasure    2.096e-03  2.671e-04   7.847 1.57e-07 ***
-## AgeB                   7.881e-04  2.954e-04   2.668 0.014762 *  
-## AgeC                   8.927e-04  3.411e-04   2.617 0.016503 *  
-## AgeD                   9.567e-04  3.660e-04   2.614 0.016604 *  
-## AgeE                   2.040e-03  4.331e-04   4.710 0.000134 ***
-## AgeF                   1.381e-03  5.526e-04   2.500 0.021237 *  
-## AgeG                   1.353e-03  4.600e-04   2.942 0.008068 ** 
-## AgeH                   1.395e-03  3.902e-04   3.575 0.001894 ** 
-## Claim_Count           -8.694e-08  9.419e-07  -0.092 0.927375    
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## (Dispersion parameter for Gamma family taken to be 0.02045281)
-## 
-##     Null deviance: 3.20647  on 31  degrees of freedom
-## Residual deviance: 0.42585  on 20  degrees of freedom
-## AIC: 335.24
-## 
-## Number of Fisher Scoring iterations: 4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">r_squared =<span class="st"> </span><span class="dv">1</span> -<span class="st"> </span>( fit$deviance /<span class="st"> </span>fit$df.null ) <span class="co"># psuedo r2 for GLMs</span>
-
-r_squared </code></pre></div>
-<pre><code>## [1] 0.9862631</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># this model explains much more variance now that the error distribution has been specified correctly</span></code></pre></div>
-<ul>
-<li><p><a href="https://en.wikipedia.org/wiki/Exponential_family">Probability distributions from the exponential family</a></p>
-<ol style="list-style-type: decimal">
-<li>Claim Counts: <strong>Multiplicative Poisson</strong> model forms fit due to the poisson distribution is invariant to meatures of time.</li>
-<li>Frequency: <strong>Multiplicative Poisson</strong> model forms fit due to the poisson distribution is invariant to meatures of time.</li>
-<li>Severity: <strong>Multiplicative Gamma</strong> model forms fit because the gamma distribution is invariant to measures of currency.</li>
-<li>Retension and New Business: <strong>Binomial with logit</strong> model form fits becasue the binomial distribution is invariant to measures of success or failure.</li>
-</ol></li>
+<li><a href="http://r4ds.had.co.nz/"><strong>R for Data Science</strong></a></li>
+<li><a href="https://bookdown.org/yihui/bookdown/">bookdown: Authoring Books with R Markdown</a></li>
+<li><a href="http://jasdumas.github.io/ds-resources/">Data Science Curated List from Author Jasmine Dumas</a></li>
+<li><a href="http://appliedpredictivemodeling.com/">Applied Predictive Modeling</a></li>
+<li><a href="http://www.rinfinance.com/">R in Finance Conference</a></li>
 </ul>
 </div>
-<div id="gbm" class="section level2">
-<h2><span class="header-section-number">6.3</span> <strong>GBM</strong></h2>
-<p>Gradient boosting is a machine learning technique for regression and classification problems, which produces a prediction model in the form of an ensemble of weak prediction models, typically decision trees. It builds the model in a stage-wise fashion like other boosting methods do, and it generalizes them by allowing optimization of an arbitrary differentiable loss function. <a href="https://en.wikipedia.org/wiki/Gradient_boosting">Source: Wikipedia</a></p>
+<div id="financial-technology-resources" class="section level2">
+<h2><span class="header-section-number">9.2</span> Financial Technology Resources</h2>
+<div id="social" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Social</h3>
 <ul>
-<li><a href="https://www.analyticsvidhya.com/blog/2016/02/complete-guide-parameter-tuning-gradient-boosting-gbm-python/">Parameter tuning</a> is prudent in machine learning!</li>
-</ul>
-<p><strong>Examples:</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(insuranceData)
-<span class="kw">data</span>(<span class="st">&quot;AutoCollision&quot;</span>)
-<span class="kw">library</span>(gbm)
-
-<span class="co"># let&#39;s build a a GBM model which combines some weak learners into a strong learner as to boost the predictive power of those variables which contribute the most to the model</span>
-fit &lt;-<span class="st"> </span><span class="kw">gbm</span>(Claim_Count ~<span class="st"> </span>Vehicle_Use +<span class="st"> </span>Age +<span class="st"> </span>Severity, <span class="dt">data=</span>AutoCollision, <span class="dt">distribution =</span> <span class="st">&quot;poisson&quot;</span>, <span class="dt">n.trees =</span> <span class="dv">50</span>, <span class="dt">bag.fraction =</span> <span class="fl">0.8</span>)
-<span class="kw">summary</span>(fit)</code></pre></div>
-<p><img src="r4fintech_files/figure-html/gbm-exp1-1.png" width="672" /></p>
-<pre><code>##                     var   rel.inf
-## Age                 Age 50.358258
-## Vehicle_Use Vehicle_Use 43.419429
-## Severity       Severity  6.222313</code></pre>
-</div>
-<div id="ensemble-learning" class="section level2">
-<h2><span class="header-section-number">6.4</span> <strong>Ensemble learning</strong></h2>
-<p>In statistics and machine learning, ensemble methods use multiple learning algorithms to obtain better predictive performance than could be obtained from any of the constituent learning algorithms alone. <a href="https://en.wikipedia.org/wiki/Ensemble_learning">Source: Wikipedia</a></p>
-<ul>
-<li><a href="http://blog.revolutionanalytics.com/2014/04/a-dive-into-h2o.html">h2o / stacking</a></li>
+<li><a href="https://www.simple.com/blog">Simple Finance Blog</a></li>
+<li><a href="https://medium.com/wharton-fintech">Wharton FinTech Group</a>, <a href="https://medium.com/wharton-fintech">Blog</a></li>
+<li><a href="https://twitter.com/hashtag/fintech?lang=en">#fintech on Twitter</a></li>
 </ul>
 </div>
-<div id="additional-machine-learning-techniques" class="section level2">
-<h2><span class="header-section-number">6.5</span> <strong>Additional Machine Learning Techniques</strong></h2>
+<div id="articles" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Articles</h3>
 <ul>
-<li><a href="https://xgboost.readthedocs.io/en/latest/"><code>xgboost</code></a>: Extreme Gradient Boosting, which is an efficient implementation of gradient boosting framework. This package is its R interface. The package includes efficient linear model solver and tree learning algorithms. The package can automatically do parallel computation on a single machine which could be more than 10 times faster than existing gradient boosting packages. It supports various objective functions, including regression, classification and ranking. The package is made to be extensible, so that users are also allowed to define their own objectives easily.</li>
-<li><a href="https://cran.r-project.org/web/packages/TDboost/TDboost.pdf"><code>TDboost</code></a>: A boosted Tweedie compound Poisson model using the gradient boosting. It is capable of fitting a flexible nonlinear Tweedie compound Poisson model (or a gamma model) and capturing interactions among predictors.</li>
-<li><a href="https://web.stanford.edu/~hastie/glmnet/glmnet_alpha.html"><code>glmnet</code>: lasso, ridge, elasticnet</a>: Extremely efficient procedures for fitting the entire lasso (least absolute shrinkage and selection operator) or elastic-net regularization path for linear regression, logistic and multinomial regression models, Poisson regression and the Cox model. Two recent additions are the multiple-response Gaussian, and the grouped multinomial. The algorithm uses cyclical coordinate descent in a path-wise fashion.</li>
-<li><a href="https://cran.r-project.org/web/packages/randomForest/randomForest.pdf"><code>randomForest</code></a>: Classification and regression based on a forest of trees using random inputs.</li>
-<li><a href="http://www.statmethods.net/advstats/cluster.html">K-means / K-mediods</a>: K Means Clustering is an unsupervised learning algorithm that tries to cluster data based on their similarity. Available in the base <code>stats</code> package</li>
+<li><a href="http://www.inc.com/john-boitnott/8-ways-financial-technology-is-changing-in-2016.html">8 Ways Financial Technology Will Evolve in 2016</a> by JOHN BOITNOTT, Journalist and digital consultant</li>
+<li><a href="http://mashable.com/2016/01/27/financial-tech-brandspeak/#ooPFUtwIakqa">Predicting the future of financial technology</a> by Mashable</li>
+<li><a href="https://due.com/blog/how-cryptocurrencies-are-beginning-to-shape-fintech-education-in-colleges/">HOW CRYPTOCURRENCIES ARE BEGINNING TO SHAPE FINTECH EDUCATION IN COLLEGES</a> by Angela Ruth at <a href="https://due.com/">due</a></li>
+</ul>
+</div>
+<div id="education" class="section level3">
+<h3><span class="header-section-number">9.2.3</span> Education</h3>
+<ul>
+<li><a href="https://www.udemy.com/fintech-basics/">Fintech Basics</a> from <a href="https://www.udemy.com/">Udemy</a></li>
+<li><a href="https://www.coursera.org/specializations/investment-management">Investment Management Specialization</a> from <a href="https://www.coursera.org/">Coursera</a></li>
+<li><a href="https://www.coursera.org/learn/cryptocurrency">Bitcoin and Cryptocurrency Technologies</a> from <a href="https://www.coursera.org/">Coursera</a></li>
+<li><a href="https://www.edx.org/course/subject/economics-finance">Economics &amp; Finance Courses</a> from <a href="https://www.edx.org">edX</a></li>
 </ul>
 
+</div>
 </div>
 </div>
             </section>
@@ -354,8 +247,8 @@ fit &lt;-<span class="st"> </span><span class="kw">gbm</span>(Claim_Count ~<span
           </div>
         </div>
       </div>
-<a href="viz.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="communicate.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -382,7 +275,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jasdumas/r4fintech/edit/master/05-model.Rmd",
+"link": "https://github.com/jasdumas/r4fintech/edit/master/08-resources.Rmd",
 "text": null
 },
 "download": ["r4fintech.pdf"],

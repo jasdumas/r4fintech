@@ -1,15 +1,38 @@
 
 # References {#references}
 
+1. Yihui Xie (NA). bookdown: Authoring Books with R Markdown. R package version 0.1.15.
+  https://github.com/rstudio/bookdown
+1. Hadley Wickham, Jim Hester and Romain Francois (2016). readr: Read
+  Tabular Data. R package version 1.0.0.
+  https://CRAN.R-project.org/package=readr
+2. Hadley Wickham (2016). readxl: Read Excel Files. R package version
+  0.1.1. https://CRAN.R-project.org/package=readxl
+3. Jeroen Ooms (2014). The jsonlite Package: A Practical and Consistent Mapping Between JSON
+  Data and R Objects. arXiv:1403.2805 [stat.CO] URL http://arxiv.org/abs/1403.2805.
+4. Hadley Wickham and James Hester (2016). xml2: Parse XML. R package version 1.0.0.
+  https://CRAN.R-project.org/package=xml2
+5. Hadley Wickham (2016). rvest: Easily Harvest (Scrape) Web Pages. R package version 0.3.2.
+  https://CRAN.R-project.org/package=rvest
+6. R Special Interest Group on Databases (R-SIG-DB), Hadley Wickham and Kirill Müller (2016).
+  DBI: R Database Interface. R package version 0.5. https://CRAN.R-project.org/package=DBI
+7. Jeroen Ooms, David James, Saikat DebRoy, Hadley Wickham and Jeffrey Horner (2016). RMySQL:
+  Database Interface and 'MySQL' Driver for R. R package version 0.10.9.
+  https://CRAN.R-project.org/package=RMySQL
+8. Joe Conway, Dirk Eddelbuettel, Tomoaki Nishiyama, Sameer Kumar Prayaga and Neil Tiffin
+  (2016). RPostgreSQL: R interface to the PostgreSQL database system. R package version 0.4-1.
+  https://CRAN.R-project.org/package=RPostgreSQL
+9. Javier Luraschi, Kevin Ushey, JJ Allaire and The Apache Software Foundation (2016). sparklyr:
+  R Interface to Apache Spark. R package version 0.4.
+  https://CRAN.R-project.org/package=sparklyr
+10. Hadley Wickham and Evan Miller (2016). haven: Import and Export 'SPSS', 'Stata' and 'SAS'
+  Files. R package version 1.0.0. https://CRAN.R-project.org/package=haven
+11. R Core Team (2015). foreign: Read Data Stored by Minitab, S, SAS, SPSS, Stata, Systat, Weka,
+  dBase, .... R package version 0.8-66. https://CRAN.R-project.org/package=foreign
 
-## R Resources
+## Session Info
+```{r, echo=FALSE}
+devtools::session_info()
+```
 
-+ [**R for Data Science**](http://r4ds.had.co.nz/)
-+ [bookdown: Authoring Books with R Markdown](https://bookdown.org/yihui/bookdown/)
-
-
-## Financial Technology Resources
-
-+ [Wharton FinTech](https://medium.com/wharton-fintech)
-+ [#fintech](https://twitter.com/hashtag/fintech?lang=en)
 

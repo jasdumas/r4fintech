@@ -1,6 +1,8 @@
 
 # Import {#import}
 
+## **Introduction**
+
 The first step in the typical data science project involves importing data into R. There are numerous packages for different data types all with varying preferences on speed and efficiency. Here are some R packages for importing data into R: 
 
 ## **Tabular Data**
@@ -9,21 +11,25 @@ Tabular data consists of variables, observations and values to form data frames.
 
 ![](01_var_obs_val.PNG)
 
-  * [`readr`](https://CRAN.R-project.org/package=readr): Read flat/tabular text files from disk (or a connection). readr has some benefits over the base/utils version as smart column type parsing and not automatically converting strings into factors.
-  
-Here is an example of [credit card applications](http://archive.ics.uci.edu/ml/datasets/Credit+Approval) from the [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html):
+### **readr  **   
+[`readr`](https://CRAN.R-project.org/package=readr): Read flat/tabular text files from disk (or a connection). readr has some benefits over the base/utils version as smart column type parsing and not automatically converting strings into factors.
+
+#### **Examples   ** 
+
+* Here is an example of [credit card applications data set](http://archive.ics.uci.edu/ml/datasets/Credit+Approval) from the [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html) using `readr`:
   
 ```{r, message=FALSE, warning=FALSE}
 library(readr)
 cc_apps <- read_csv("http://archive.ics.uci.edu/ml/machine-learning-databases/credit-screening/crx.data", col_names = F)
 head(cc_apps)
-
 ```
 
-  
-  * [`readxl`](https://cran.r-project.org/package=readxl): Import excel files into R. Supports '.xls' via the embedded 'libxls' C library (http://sourceforge.net/projects/libxls/) and '.xlsx' via the embedded 'RapidXML' C++ library (http://rapidxml.sourceforge.net). Works on Windows, Mac and Linux without external dependencies.
 
-Here is an example from the [default of credit card clients data set](http://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients) from the [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html):
+### **readxl      **
+[`readxl`](https://cran.r-project.org/package=readxl): Import excel files into R. Supports '.xls' via the embedded 'libxls' C library (http://sourceforge.net/projects/libxls/) and '.xlsx' via the embedded 'RapidXML' C++ library (http://rapidxml.sourceforge.net). Works on Windows, Mac and Linux without external dependencies.
+
+#### **Examples    **
+* Here is an example from the [default of credit card clients data set](http://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients) from the [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html) using `readxl`:
   
 ```{r, message=FALSE, warning=FALSE}
 # download the excel file first from the link
@@ -42,32 +48,67 @@ head(default_cc)
 
 ## **Hierarchical Data**
 
-Hierarchical Data is a tree-structure data format such as [XML](https://en.wikipedia.org/wiki/XML), [HTML](https://en.wikipedia.org/wiki/HTML), [JSON](https://en.wikipedia.org/wiki/JSON).
+Hierarchical Data is a tree-structure data format such as [XML](https://en.wikipedia.org/wiki/XML), [HTML](https://en.wikipedia.org/wiki/HTML), [JSON](https://en.wikipedia.org/wiki/JSON). Popular methods for accessing this data are known as **web scraping** or **web data mining** when the goal is to parse data on a web page into a analysis-ready format such as a data frame.
 
-  * [`jsonlite`](https://CRAN.R-project.org/package=jsonlite): A fast JSON parser and generator optimized for statistical data and the web. 
-  * [`xml2`](https://CRAN.R-project.org/package=xml2): Work with XML files using a simple, consistent interface. Built on top of the 'libxml2' C library.
-  * [`rvest`](https://CRAN.R-project.org/package=rvest): Wrappers around the 'xml2' and 'httr' packages to make it easy to download, then manipulate, HTML and XML.
+### **jsonlite   **
+[`jsonlite`](https://CRAN.R-project.org/package=jsonlite): A fast JSON parser and generator optimized for statistical data and the web. 
+
+#### **Examples      **
+TBD
+
+### **xml2     **
+[`xml2`](https://CRAN.R-project.org/package=xml2): Work with XML files using a simple, consistent interface. Built on top of the 'libxml2' C library.
+
+#### **Examples     ** 
+TBD
+
+### **rvest     **
+[`rvest`](https://CRAN.R-project.org/package=rvest): Wrappers around the 'xml2' and 'httr' packages to make it easy to download, then manipulate, HTML and XML.
+
+#### **Examples      **
+TBD
+
 
 ## **Relational Data**
 
 [Relational Data](https://en.wikipedia.org/wiki/Relational_database) consists of a collection of data items (tables) organized as a set based on the data contents and its relation.
 
-  * [`DBI`](https://CRAN.R-project.org/package=DBI): A database interface definition for communication between R and relational database management systems. All classes in this package are virtual and need to be extended by the various R/DBMS implementations.
-  * [`RMySQL`](https://CRAN.R-project.org/package=RMySQL): Implements 'DBI' Interface to 'MySQL' and 'MariaDB' Databases.
+### **DBI**
+[`DBI`](https://CRAN.R-project.org/package=DBI): A database interface definition for communication between R and relational database management systems. All classes in this package are virtual and need to be extended by the various R/DBMS implementations.
+
+#### **Examples      **
+TBD
+
+### **RMySQL     **    
+[`RMySQL`](https://CRAN.R-project.org/package=RMySQL): Implements 'DBI' Interface to 'MySQL' and 'MariaDB' Databases.
+
+#### **Examples      **
+TBD
+
+#### **RPostgreSQL       **
+[`RPostgreSQL`](https://cran.r-project.org/package=RPostgreSQL):Database interface and PostgreSQL driver for R This package provides a Database Interface (DBI) compliant driver for R to access PostgreSQL database systems. In order to build and install this package from source, PostgreSQL itself must be present your system to provide PostgreSQL functionality via its libraries and header files. These files are provided as postgresql-devel package under some Linux distributions. On Microsoft Windows system the attached libpq library source will be used. A wiki and issue tracking system for the package are available at Google Code at https://code.google.com/p/rpostgresql/
+
+#### **Examples      **
+TBD
 
 ## **Distributed Data**
 
-Distributed Data consists of non-relational formats with quick access to data over a large number of nodes.
+Distributed Data consists of non-relational formats with quick access to data over a large number of nodes (data spread over many different computers).
   
-  * [`sparklyr`](http://spark.rstudio.com/): Filter and aggregate Spark datasets then bring them into R for analysis and visualization.
-  
-  
-## **Different Data Formats**
+### **sparklyr    **
+[`sparklyr`](http://spark.rstudio.com/): Filter and aggregate Spark datasets then bring them into R for analysis and visualization.
 
-The R programming language and environment is continuously increasing its capacity with new packages to work with different types of proprietory data formats from statistical software packages that are used on industry teams.
-
-  * [`haven`](https://CRAN.R-project.org/package=haven): Import and Export 'SPSS', 'Stata' and 'SAS' Files. 
+#### **Examples      **
+TBD
   
+## **Additional Import Methods**  
+
+**Different Data Formats**: The R programming language and environment is continuously increasing its capacity with new packages to work with different types of proprietory data formats from statistical software packages that are used on industry teams.
+
+### **haven    **
+[`haven`](https://CRAN.R-project.org/package=haven): Import and Export 'SPSS', 'Stata' and 'SAS' Files. 
+
+#### **Examples      **
 Here is an example from [Macquarie University data repository for the applied finance and actuarial studies](http://www.businessandeconomics.mq.edu.au/our_departments/Applied_Finance_and_Actuarial_Studies/research/books/GLMsforInsuranceData/data_sets) of importing a [SAS](http://www.sas.com/en_us/home.html) data set:
   
 ```{r, message=FALSE, warning=FALSE}
@@ -76,11 +117,14 @@ claims <- read_sas("http://www.businessandeconomics.mq.edu.au/our_departments/Ap
 head(claims)
 ```
 
-* [`foreign`](https://CRAN.R-project.org/package=foreign): Functions for reading and writing data stored by some versions of Epi Info, Minitab, S, SAS, SPSS, Stata, Systat and Weka and for reading and writing some dBase files.
+### **foreign     **
+[`foreign`](https://CRAN.R-project.org/package=foreign): Functions for reading and writing data stored by some versions of Epi Info, Minitab, S, SAS, SPSS, Stata, Systat and Weka and for reading and writing some dBase files.
 
-## **Accessing Zipped Data files**
+#### **Examples      **
+TBD
 
-[Zip archives](https://en.wikipedia.org/wiki/Zip_(file_format)) are actually more a 'filesystem' with content, meta data, and/or documentation. 
+### **_Zipped Data_      **
+**Accessing Zipped Data files**: [Zip archives](https://en.wikipedia.org/wiki/Zip_(file_format)) are actually more a 'filesystem' with content, meta data, and/or documentation. 
 
 1. Create a temp file. file name (eg tempfile())
 2. Use download.file() to download the file into the temp object that is being reserved for the file

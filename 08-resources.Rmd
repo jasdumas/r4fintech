@@ -1,0 +1,29 @@
+
+# Learning Resources {#resources}
+
+## R Programming Resources
+
++ [**R for Data Science**](http://r4ds.had.co.nz/)
++ [bookdown: Authoring Books with R Markdown](https://bookdown.org/yihui/bookdown/)
++ [Data Science Curated List from Author Jasmine Dumas](http://jasdumas.github.io/ds-resources/)
++ [Applied Predictive Modeling](http://appliedpredictivemodeling.com/)
++ [R in Finance Conference](http://www.rinfinance.com/)
+
+## Financial Technology Resources
+
+### Social
++ [Simple Finance Blog](https://www.simple.com/blog)
++ [Wharton FinTech Group](https://medium.com/wharton-fintech), [Blog](https://medium.com/wharton-fintech)
++ [#fintech on Twitter](https://twitter.com/hashtag/fintech?lang=en)
+
+### Articles
++ [8 Ways Financial Technology Will Evolve in 2016](http://www.inc.com/john-boitnott/8-ways-financial-technology-is-changing-in-2016.html) by JOHN BOITNOTT, Journalist and digital consultant
++ [Predicting the future of financial technology](http://mashable.com/2016/01/27/financial-tech-brandspeak/#ooPFUtwIakqa) by Mashable
++ [HOW CRYPTOCURRENCIES ARE BEGINNING TO SHAPE FINTECH EDUCATION IN COLLEGES](https://due.com/blog/how-cryptocurrencies-are-beginning-to-shape-fintech-education-in-colleges/) by Angela Ruth at [due](https://due.com/)
+
+### Education
++ [Fintech Basics](https://www.udemy.com/fintech-basics/) from [Udemy](https://www.udemy.com/)
++ [Investment Management Specialization](https://www.coursera.org/specializations/investment-management) from [Coursera](https://www.coursera.org/)
++ [Bitcoin and Cryptocurrency Technologies](https://www.coursera.org/learn/cryptocurrency) from [Coursera](https://www.coursera.org/)
++ [Economics & Finance Courses](https://www.edx.org/course/subject/economics-finance) from [edX](https://www.edx.org)
+

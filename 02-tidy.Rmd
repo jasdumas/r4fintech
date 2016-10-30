@@ -1,6 +1,8 @@
 
 # Tidy {#tidy}
 
+## **Introduction**
+
 Reshaping the data is an important (if necessary) step to exploratory data analysis and preparatory data cleaning for modeling or creating specialized visualization. Further concepts about *tidy data* can be found in this paper [Tidy Data](http://vita.had.co.nz/papers/tidy-data.pdf).
 
 The principles of tidy data are:
@@ -9,9 +11,11 @@ The principles of tidy data are:
 2. Each observation forms a row
 3. Each type of observational unit forms a table
 
+
+### **tidyr    **
 * [`tidyr`](https://cran.r-project.org/web/packages/tidyr/index.html): An evolution of 'reshape2'. It's designed specifically for data tidying (not general reshaping or aggregating) and works well with 'dplyr' data pipelines. Tidy data complements R’s vectorized operations. R will automatically preserve observations as you manipulate variables. No other format works as intuitively with R.
 
-**Examples: **
+#### **Examples **
 
 ```{r, message=FALSE, warning=FALSE}
 library(tidyr)
@@ -27,10 +31,7 @@ head(g)
 
 ```
 
-
-**Examples: ** 
-
-Not all data that needs to be *tidied* comes in "long" format (i.e. the `spread()` function), so this data set below is put into tidy form using base R functions. This data set has its observations stored in the row names field, delimited with a semicolon ";". The original column contains a  mis-transformed value for the population density metric. The only variables' names are also a concatenation of the entire data set's column names delimited with a period ".".
+Not all data that needs to be *tidied* comes in "long" format (i.e. the `spread()` function), so this data set below is put into tidy or cleaned format using base R functions and general manipulation. This data set has its observations stored in the row names field, delimited with a semicolon ";". The original column contains a  mis-transformed value for the population density metric. The only variables' names are also a concatenation of the entire data set's column names delimited with a period ".".
 
 * [Data dictionary](http://www.businessandeconomics.mq.edu.au/our_departments/Applied_Finance_and_Actuarial_Studies/acst_docs/glms_for_insurance_data/data/third_party_claims.txt)
 * [Original source data used in the insuranceData package](http://www.businessandeconomics.mq.edu.au/our_departments/Applied_Finance_and_Actuarial_Studies/acst_docs/glms_for_insurance_data/data/Third_party_claims.xls)
@@ -53,6 +54,6 @@ head(tidy_3PD)
 
 ```
 
-**Every variable forms a column and every observation forms a row which makes for a table!**
+___
 
-___________________
+*Every variable forms a column and every observation forms a row which makes for a table!*

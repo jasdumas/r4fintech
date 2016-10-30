@@ -1,11 +1,13 @@
 # Transform {#transform}
 
-Transforming cleaned data to create summaries is an important part of the data analysis process along with extracting out features to create new features in variable.
+## **Introduction    **
+Transforming cleaned data to create summaries and aggregations is an common part of the data analysis process along with extracting out data to create new features. With SQL-like commands you can answer numerous questions in the exploratory phase of a analysis prior to building a model with `dplyr`. 
 
+### **dplyr   **
 
-* [`dplyr`](https://cran.r-project.org/web/packages/dplyr/index.html): A fast, consistent tool for working with data frame like objects, both in memory and out of memory.
+[`dplyr`](https://cran.r-project.org/web/packages/dplyr/index.html): A fast, consistent tool for working with data frame like objects, both in memory and out of memory.
 
-**Examples: **
+#### **Examples **
 
 ```{r, message=FALSE, warning=FALSE}
 library(dplyr)
